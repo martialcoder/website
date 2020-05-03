@@ -1,0 +1,7 @@
+{
+  "globalImports": ["./src/index.css"],
+  "watchDirs": ["src"],
+  "webpack": {
+    "configPath": "react-scripts/config/webpack.config"
+  }
+}
