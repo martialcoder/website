@@ -9,4 +9,22 @@ body {
   font-family: Ubuntu, sans-serif;
   color: #333;
   overflow: hidden;
+  font-size: 16px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(50, 50, 50, 0.3);
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.3rem;
+}
+a:before {
+  content: "< ";
+}
+a:after {
+  content: " >";
+}
+p {
+  line-height: 24px;
 }

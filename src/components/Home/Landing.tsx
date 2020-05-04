@@ -9,6 +9,7 @@ import GradientWave from "../Animated/GradientWave";
 import styled from "@emotion/styled";
 import Ripple from "../Animated/Ripple";
 import BackgroundImage from "../BackgroundImage";
+import { react as Subtitle } from "../../content/home/subtitle.md";
 
 const LogoContainer = styled.div`
   top: 0;
@@ -21,18 +22,23 @@ const LogoContainer = styled.div`
   justify-content: center;
 `;
 
+const Container = styled(Section)`
+  .frontmatter-markdown {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+  }
+  h2 {
+    font-weight: lighter;
+    text-align: center;
+  }
+`;
+
 const fadeIn = keyframes`
  from { opacity: 0 }
  to{ opacity: 1 }
 `;
 
-const Subtitle = styled.h1`
-  font-weight: lighter;
-  position: absolute;
-  bottom: 4rem;
-  width: 100%;
-  text-align: center;
-`;
 const BrandContainer = styled.div`
   position: relative;
   path:nth-of-type(1) {
@@ -45,7 +51,8 @@ const BrandContainer = styled.div`
 `;
 
 export default () => (
-  <Section
+  <Container
+    id="landing"
     color={COLORS.serenity}
     spacing="20px 10px"
     style={{ alignItems: "center" }}
@@ -62,15 +69,12 @@ export default () => (
       url={SOURCES.mountain}
       style={{ backgroundPositionX: "-10vw", backgroundPositionY: "50vh" }}
     />
-    <Ripple delay="15s" duration="25s" size={300} />
-    <Ripple delay="10s" duration="20s" size={200} />
-    <Ripple delay="20s" duration="15s" size={200} />
     <LogoContainer>
       <HomeLogo />
     </LogoContainer>
     <BrandContainer>
       <MartialCoder width="80vw" height="10rem" style={{ maxWidth: "300px" }} />
     </BrandContainer>
-    <Subtitle>Finding a way to good development.</Subtitle>
-  </Section>
+    <Subtitle />
+  </Container>
 );

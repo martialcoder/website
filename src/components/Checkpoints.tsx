@@ -38,7 +38,7 @@ function CheckpointMonitor({ onChange, ...props }: any) {
   }, [ref.current, breakpoints.current]);
 
   const updateBreakpoint = useCallback((y) => {
-    const selected = breakpoints.current.find((breakpoint, i) => {
+    const selected: any = breakpoints.current.find((breakpoint: any, i) => {
       console.log(i, i + 1);
       const nextBreak = breakpoints.current[i + 1];
 

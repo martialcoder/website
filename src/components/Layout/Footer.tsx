@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { react as Licenses } from "../../content/licenses.md";
 
 const Container = styled.div`
   width: 100%;
@@ -7,7 +8,7 @@ const Container = styled.div`
   color: white;
   font-weight: lighter;
   font-size: 0.8rem;
-  .licence {
+  .frontmatter-markdown {
     text-align: center;
     padding: 0.2rem 0.4rem;
   }
@@ -17,23 +18,10 @@ const Container = styled.div`
   }
 `;
 
-const IconsLicense = () => (
-  <div className="licence">
-    Icons made using{" "}
-    <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">
-      Flat Icons
-    </a>{" "}
-    from{" "}
-    <a href="https://www.flaticon.com/" title="Flaticon">
-      www.flaticon.com
-    </a>
-  </div>
-);
-
-export default function Licenses() {
+export default function Footer() {
   return (
     <Container>
-      <IconsLicense />
+      <Licenses />
     </Container>
   );
 }

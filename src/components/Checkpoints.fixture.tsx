@@ -6,7 +6,11 @@ import { getRandomColors } from "../styles/colors";
 
 const sections = getRandomColors(5);
 
-const CustomSection: React.FC = ({ id, ...props }) => {
+const CustomSection: React.FC<{
+  id?: string;
+  color?: string;
+  spacing?: string;
+}> = ({ id, ...props }) => {
   const { state } = useCheckpoints();
   console.log(state);
   useEffect(() => {

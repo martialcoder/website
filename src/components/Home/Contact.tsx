@@ -5,7 +5,7 @@ import BackgroundImage from "../BackgroundImage";
 import { SOURCES } from "../../styles/icons";
 import GradientWave from "../Animated/GradientWave";
 import ContactForm from "./ContactForm";
-import Button from "../Button";
+
 import styled from "@emotion/styled";
 
 const FormContainer = styled.div`
@@ -63,6 +63,7 @@ const Message = styled.textarea`
 
 export default () => (
   <Section
+    id="contact"
     color={COLORS.serenity}
     spacing="20px 10px"
     style={{ alignItems: "center", justifyContent: "center" }}

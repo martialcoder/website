@@ -7,6 +7,7 @@ type PropsTypes = {
 };
 
 const Section = styled.div<PropsTypes>`
+  position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;

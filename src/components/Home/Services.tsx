@@ -7,12 +7,14 @@ import {
   Ninja,
   Inventory,
   Computer,
+  Cloud,
   SOURCES,
 } from "../../styles/icons";
 import { COLORS } from "../../styles/colors";
-import Gradient from "../Animated/GradientWave";
-import Button from "../Button";
 import { rgba } from "polished";
+import { react as Training } from "../../content/home/service-training.md";
+import { react as Development } from "../../content/home/service-development.md";
+import { react as Consulting } from "../../content/home/service-consulting.md";
 
 const Info = styled.div<{ color?: string }>`
   background: ${({ color }) => color};
@@ -32,6 +34,9 @@ const Panel = styled.div`
   flex-direction: row;
   border-radius: 1rem;
   box-shadow: 0 0 10px 10px rgba(150, 150, 150, 0.3);
+  @media all and (max-width: 30em) {
+    flex-direction: column;
+  }
 `;
 
 const Card = styled.div`
@@ -97,6 +102,7 @@ const DevCard = styled(Card)`
 
 export default () => (
   <Section
+    id="services"
     spacing="40px"
     color={COLORS.mimosa}
     style={{ alignItems: "center", justifyContent: "center" }}
@@ -108,9 +114,7 @@ export default () => (
           <Fitness width="100px" height="100px" />
         </Aura>
         <Info color={COLORS.emerald}>
-          <h2>Training</h2>
-          <p>Book Time</p>
-          <p>Check out my articles!</p>
+          <Training />
         </Info>
       </Card>
       <DevCard>
@@ -123,12 +127,7 @@ export default () => (
           <Ninja width="100px" height="100px" />
         </Aura>
         <Info color={COLORS.cerise}>
-          <h2>Development</h2>
-          <p>
-            Senior Full-Stack Ninja
-            <br />
-            for hire.
-          </p>
+          <Development />
         </Info>
       </DevCard>
       <Card>
@@ -136,9 +135,7 @@ export default () => (
           <Inventory width="100px" height="100px" />
         </Aura>
         <Info color={COLORS.curiousBlue}>
-          <h2>Consulting</h2>
-          <p>Cloud Architacture</p>
-          <p>Code Analysis</p>
+          <Consulting />
         </Info>
       </Card>
     </Panel>

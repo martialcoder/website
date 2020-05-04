@@ -39,6 +39,12 @@ const Button = styled.a<{
     display: block;
     margin: 0.4em auto;
   }
+  &:before {
+    display: none;
+  }
+  &:after {
+    display: none;
+  }
 `;
 
 export default Button;

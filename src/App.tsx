@@ -1,20 +1,28 @@
-import React, { Component } from "react";
-import logoSrc from "./assets/martial-coder.svg";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Base from "./components/Layout/Base";
+import Footer from "./components/Layout/Footer";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header style={{ height: "500px" }} className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <img src={logoSrc} alt="logo" />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Base>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+        <Footer />
+      </Base>
+    </Router>
+  );
 }
 
-export default App;
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
