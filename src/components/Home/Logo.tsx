@@ -1,5 +1,5 @@
 import { useSpring } from "react-spring";
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useMove } from "react-use-gesture";
 import styled from "@emotion/styled";
 import Magnet from "../Animated/Magnet";
@@ -10,7 +10,6 @@ import {
 } from "../../styles/icons";
 import UpAndDown from "../Animated/UpAndDown";
 import { useWindowSize } from "../../hooks/window";
-import Ripple from "../Animated/Ripple";
 
 const getPx = (value: number) => `${value}px`;
 

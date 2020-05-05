@@ -18,12 +18,22 @@ import hillsSrc, { ReactComponent as Hills } from "../assets/hills-no-sky.svg";
 import yingYangSrc, {
   ReactComponent as YingYang,
 } from "../assets/ying-yang.svg";
+import arrowDownSrc, {
+  ReactComponent as ArrowDown,
+} from "../assets/arrow-down.svg";
+import gitHubSrc, { ReactComponent as GitHub } from "../assets/github.svg";
+import linkedInSrc, {
+  ReactComponent as LinkedIn,
+} from "../assets/linkedin.svg";
 import fiordSrc from "../assets/landscapes/fiord.svg";
 import mountainSrc from "../assets/mountain.svg";
 import windmillsSrc from "../assets/windmills.svg";
 import ruinSrc from "../assets/ruin.svg";
 
 export const SOURCES = {
+  gitHub: gitHubSrc,
+  linkedIn: linkedInSrc,
+  arrowDown: arrowDownSrc,
   mountain: mountainSrc,
   ruin: ruinSrc,
   windmills: windmillsSrc,
@@ -41,6 +51,9 @@ export const SOURCES = {
 };
 
 export {
+  LinkedIn,
+  GitHub,
+  ArrowDown,
   Hills,
   Cloud,
   MartialCoder,

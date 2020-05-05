@@ -1,9 +1,12 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import Base from "./Base";
 import Footer from "./Footer";
 
 export default (
-  <Base>
-    <Footer />
-  </Base>
+  <BrowserRouter>
+    <Base>
+      <Footer />
+    </Base>
+  </BrowserRouter>
 );

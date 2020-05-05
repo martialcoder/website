@@ -7,7 +7,8 @@ import { COLORS } from "../../styles/colors";
 import { MartialCoder, SOURCES } from "../../styles/icons";
 import GradientWave from "../Animated/GradientWave";
 import styled from "@emotion/styled";
-import Ripple from "../Animated/Ripple";
+import Arrow from "../Animated/Arrow";
+import { useScroll } from "../Animated/Scroll";
 import BackgroundImage from "../BackgroundImage";
 import { react as Subtitle } from "../../content/home/subtitle.md";
 
@@ -50,31 +51,51 @@ const BrandContainer = styled.div`
   }
 `;
 
-export default () => (
-  <Container
-    id="landing"
-    color={COLORS.serenity}
-    spacing="20px 10px"
-    style={{ alignItems: "center" }}
-  >
-    <GradientWave
-      colors={[
-        COLORS.burntSienna,
-        COLORS.cerise,
-        COLORS.curiousBlue,
-        COLORS.java,
-      ]}
-    />
-    <BackgroundImage
-      url={SOURCES.mountain}
-      style={{ backgroundPositionX: "-10vw", backgroundPositionY: "50vh" }}
-    />
-    <LogoContainer>
-      <HomeLogo />
-    </LogoContainer>
-    <BrandContainer>
-      <MartialCoder width="80vw" height="10rem" style={{ maxWidth: "300px" }} />
-    </BrandContainer>
-    <Subtitle />
-  </Container>
-);
+export default () => {
+  const { scrollTo } = useScroll();
+
+  return (
+    <Container
+      id="landing"
+      color={COLORS.serenity}
+      spacing="20px 10px"
+      style={{ alignItems: "center" }}
+    >
+      <GradientWave
+        colors={[
+          COLORS.burntSienna,
+          COLORS.cerise,
+          COLORS.curiousBlue,
+          COLORS.java,
+        ]}
+      />
+      <BackgroundImage
+        url={SOURCES.mountain}
+        style={{ backgroundPositionX: "-10vw", backgroundPositionY: "50vh" }}
+      />
+      <LogoContainer>
+        <HomeLogo />
+      </LogoContainer>
+      <BrandContainer>
+        <MartialCoder
+          width="80vw"
+          height="10rem"
+          style={{ maxWidth: "300px" }}
+        />
+      </BrandContainer>
+      <Subtitle />
+      <Arrow
+        onClick={() => scrollTo("info")}
+        size="50px"
+        style={{
+          cursor: "pointer",
+          opacity: 0.3,
+          position: "absolute",
+          bottom: "2rem",
+          right: "2rem",
+          zIndex: 100,
+        }}
+      />
+    </Container>
+  );
+};

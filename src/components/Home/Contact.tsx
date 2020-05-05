@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Section from "../Layout/Section";
 import { COLORS } from "../../styles/colors";
 import BackgroundImage from "../BackgroundImage";
 import { SOURCES } from "../../styles/icons";
+import { sendMessage } from "../../services/contact";
 import GradientWave from "../Animated/GradientWave";
+import { Spinner1 } from "../Animated/Loaders/Spinners";
 import ContactForm from "./ContactForm";
+import Arrow from "../Animated/Arrow";
+import { useScroll } from "../Animated/Scroll";
 
 import styled from "@emotion/styled";
 
@@ -61,18 +65,44 @@ const Message = styled.textarea`
   }
 `;
 
-export default () => (
-  <Section
-    id="contact"
-    color={COLORS.serenity}
-    spacing="20px 10px"
-    style={{ alignItems: "center", justifyContent: "center" }}
-  >
-    <GradientWave colors={["black", COLORS.curiousBlue]} />
-    <BackgroundImage
-      url={SOURCES.hills}
-      style={{ backgroundPositionY: "20vh", backgroundPositionX: "50%" }}
-    />
-    <ContactForm />
-  </Section>
-);
+const useSendMessage = () => {
+  const [loading, setLoading] = useState(false);
+  const send = useCallback(async (props: any) => {
+    await sendMessage(props);
+  }, []);
+  return { send, loading };
+};
+
+export default () => {
+  const { send, loading } = useSendMessage();
+  const { scrollTo } = useScroll();
+
+  return (
+    <Section
+      id="contact"
+      color={COLORS.serenity}
+      spacing="1rem"
+      style={{ alignItems: "center", justifyContent: "center" }}
+    >
+      <GradientWave colors={["black", COLORS.curiousBlue]} />
+      <BackgroundImage
+        url={SOURCES.hills}
+        style={{ backgroundPositionY: "20vh", backgroundPositionX: "50%" }}
+      />
+      <ContactForm onSubmit={send} />
+      <Arrow
+        onClick={() => scrollTo()}
+        direction="up"
+        size="50px"
+        style={{
+          cursor: "pointer",
+          opacity: 0.3,
+          position: "absolute",
+          bottom: "2rem",
+          right: "2rem",
+          zIndex: 100,
+        }}
+      />
+    </Section>
+  );
+};

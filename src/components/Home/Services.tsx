@@ -15,7 +15,8 @@ import { rgba } from "polished";
 import { react as Training } from "../../content/home/service-training.md";
 import { react as Development } from "../../content/home/service-development.md";
 import { react as Consulting } from "../../content/home/service-consulting.md";
-
+import Arrow from "../Animated/Arrow";
+import { useScroll } from "../Animated/Scroll";
 const Info = styled.div<{ color?: string }>`
   background: ${({ color }) => color};
   flex: 1;
@@ -100,44 +101,60 @@ const DevCard = styled(Card)`
   z-index: 1;
 `;
 
-export default () => (
-  <Section
-    id="services"
-    spacing="40px"
-    color={COLORS.mimosa}
-    style={{ alignItems: "center", justifyContent: "center" }}
-  >
-    <BackgroundImage url={SOURCES.ruin} />
-    <Panel>
-      <Card>
-        <Aura>
-          <Fitness width="100px" height="100px" />
-        </Aura>
-        <Info color={COLORS.emerald}>
-          <Training />
-        </Info>
-      </Card>
-      <DevCard>
-        <Aura>
-          <Computer
-            width="100px"
-            height="100px"
-            style={{ position: "absolute", zIndex: -1, opacity: 0.1 }}
-          />
-          <Ninja width="100px" height="100px" />
-        </Aura>
-        <Info color={COLORS.cerise}>
-          <Development />
-        </Info>
-      </DevCard>
-      <Card>
-        <Aura>
-          <Inventory width="100px" height="100px" />
-        </Aura>
-        <Info color={COLORS.curiousBlue}>
-          <Consulting />
-        </Info>
-      </Card>
-    </Panel>
-  </Section>
-);
+export default () => {
+  const { scrollTo } = useScroll();
+
+  return (
+    <Section
+      id="services"
+      spacing="40px"
+      color={COLORS.mimosa}
+      style={{ alignItems: "center", justifyContent: "center" }}
+    >
+      <BackgroundImage url={SOURCES.ruin} />
+      <Panel>
+        <Card>
+          <Aura>
+            <Fitness width="100px" height="100px" />
+          </Aura>
+          <Info color={COLORS.emerald}>
+            <Training />
+          </Info>
+        </Card>
+        <DevCard>
+          <Aura>
+            <Computer
+              width="100px"
+              height="100px"
+              style={{ position: "absolute", zIndex: -1, opacity: 0.1 }}
+            />
+            <Ninja width="100px" height="100px" />
+          </Aura>
+          <Info color={COLORS.cerise}>
+            <Development />
+          </Info>
+        </DevCard>
+        <Card>
+          <Aura>
+            <Inventory width="100px" height="100px" />
+          </Aura>
+          <Info color={COLORS.curiousBlue}>
+            <Consulting />
+          </Info>
+        </Card>
+      </Panel>
+      <Arrow
+        onClick={() => scrollTo("contact")}
+        size="50px"
+        style={{
+          cursor: "pointer",
+          opacity: 0.3,
+          position: "absolute",
+          bottom: "2rem",
+          right: "2rem",
+          zIndex: 100,
+        }}
+      />
+    </Section>
+  );
+};
